@@ -1,24 +1,21 @@
-app.controller('mainCtrl', function ($scope, $mdBottomSheet, $mdSidenav, $mdDialog) {
+
+app.controller('AppCtrl', ['$scope', '$mdBottomSheet', '$mdSidenav', '$mdDialog', function ($scope, $mdBottomSheet, $mdSidenav, $mdDialog) {
     $scope.toggleSidenav = function (menuId) {
         $mdSidenav(menuId).toggle();
     };
 
     $scope.menu = [{
             link: '',
-            title: 'Dashboard',
-            icon: 'dashboard'
+            title: 'Find me Quotes',
+            icon: 'face'
         },
         {
             link: '',
-            title: 'Friends',
-            icon: 'group'
+            title: 'Find me Bible Quotes',
+            icon: 'book'
         },
-        {
-            link: '',
-            title: 'Messages',
-            icon: 'message'
-        }
     ];
+
 
     $scope.admin = [{
             link: '',
@@ -63,7 +60,10 @@ app.controller('mainCtrl', function ($scope, $mdBottomSheet, $mdSidenav, $mdDial
             notes: "We should eat this: Grapefruit, Squash, Corn, and Tomatillo tacos"
         },
     ];
+
+
     $scope.alert = '';
+
 
     $scope.showListBottomSheet = function ($event) {
         $scope.alert = '';
@@ -88,4 +88,4 @@ app.controller('mainCtrl', function ($scope, $mdBottomSheet, $mdSidenav, $mdDial
                 $scope.alert = 'You cancelled the dialog.';
             });
     };
-});
+}]);
