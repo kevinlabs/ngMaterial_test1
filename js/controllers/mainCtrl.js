@@ -78,7 +78,7 @@ app.controller('mainCtrl', ['$scope', '$mdBottomSheet', '$mdSidenav', '$mdDialog
     $scope.showAdd = function (ev) {
         $mdDialog.show({
                 controller: dialogController,
-                templateUrl: './views/showButton.html',
+                templateUrl: './views/show-button.html',
                 targetEvent: ev,
             })
             .then(function (answer) {
