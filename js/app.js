@@ -1,47 +1,4 @@
-var app = angular.module('StarterApp', ['ngMaterial', 'ngMdIcons']);
-
-
-// ====================================================
-
-app.controller('ListBottomSheetCtrl', function ($scope, $mdBottomSheet) {
-    $scope.items = [{
-            name: 'Share',
-            icon: 'share'
-        },
-        {
-            name: 'Upload',
-            icon: 'upload'
-        },
-        {
-            name: 'Copy',
-            icon: 'copy'
-        },
-        {
-            name: 'Print this page',
-            icon: 'print'
-        },
-    ];
-
-    $scope.listItemClick = function ($index) {
-        var clickedItem = $scope.items[$index];
-        $mdBottomSheet.hide(clickedItem);
-    };
-});
-
-function DialogController($scope, $mdDialog) {
-    $scope.hide = function () {
-        $mdDialog.hide();
-    };
-    $scope.cancel = function () {
-        $mdDialog.cancel();
-    };
-    $scope.answer = function (answer) {
-        $mdDialog.hide(answer);
-    };
-};
-
-
-// =======================================================================
+var app = angular.module('StarterApp', ['ngMaterial', 'ngMdIcons', 'ui.router']);
 
 app.directive('userAvatar', function () {
     return {
@@ -51,6 +8,44 @@ app.directive('userAvatar', function () {
 });
 
 // =====================================================
+
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('home', {
+            url: '/',
+            templateUrl: "../views/about.html"
+        })
+        .state('adventurers', {
+            url: 'adventurers',
+            parent: 'home',
+            templateUrl: "../views/about-adventurers.html"
+        })
+        .state('contact', {
+            url: 'contact',
+            parent: 'home',
+            templateUrl: "../views/contact.html"
+        })
+        .state('packages', {
+            url: '/packages/:country',
+            templateUrl: "../views/packages.html",
+            controller: 'packagesCtrl'
+        })
+        .state('booked', {
+            url: '/booked/:id',
+            templateUrl: "../views/booked.html",
+            controller: 'bookedCtrl'
+        })
+        .state('locations', {
+            url: '/locations',
+            templateUrl: "../views/locations.html",
+            controller: 'locationsCtrl'
+        });
+
+    $urlRouterProvider
+        .otherwise('/');
+});
+
 
 app.config(function ($mdThemingProvider) {
     var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
@@ -66,5 +61,5 @@ app.config(function ($mdThemingProvider) {
         })
         .accentPalette('pink');
     $mdThemingProvider.theme('input', 'default')
-        .primaryPalette('grey')
+        .primaryPalette('grey');
 });
