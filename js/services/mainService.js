@@ -1,16 +1,33 @@
 angular.module('StarterApp').service('mainSrv', function ($http, $log) {
 
 
+
     this.randomQuote = function () {
-        var baseUrl = 'http://www.quotzzy.co/api/quote?lang=en';
-        var baseUrl2 = 'http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=?%22/';
-        var baseUrl3 = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=20';
-        //posts?filter[orderby]=rand&filter[posts_per_page]=1
-        return $http.get(baseUrl3).then(function(response) {
+
+        var baseUrl = 'http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en';
+
+        return $http({
+            method: 'GET',
+            url: baseUrl,
+        }).then(function (response) {
             console.log('Quote is back!', response);
             return (response);
         });
     };
+
+    this.randomBible = function () {
+        var baseUrl = 'http://labs.bible.org/api/?passage=random&type=json';
+        return $http({
+            method: 'GET',
+            url: baseUrl,
+        }).then(function (response) {
+            console.log('Quote is back!', response);
+            return (response);
+        });
+    };
+
+
+
 
     // function randomQuote() {
     //     $.ajax({
@@ -30,3 +47,16 @@ angular.module('StarterApp').service('mainSrv', function ($http, $log) {
     //http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=?%22/
 
 });
+
+
+
+
+
+/*
+
+var baseUrl4 = "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=?";
+
+var baseUrl = 'http://www.quotzzy.co/api/quote?lang=en';
+var baseUrl2 = 'http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=?%22/';
+
+*/

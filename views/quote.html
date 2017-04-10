@@ -1,8 +1,9 @@
-<md-content class="md-padding" layout-xs="column">
-    <div flex ng-repeat="item in quoteArray">
-        <md-card>
-            quote page 
-            {{item}}
+<md-content class="md-padding" id="cardbox-container" >
+    <div ng-repeat="item in quoteArray">
+        <md-card class="animated zoomIn" id="cardbox" >
+            {{item.quote}}
+            - Author:
+            {{item.author}}
         </md-card>
     </div>
 

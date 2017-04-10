@@ -12,6 +12,21 @@
     font-size: 16px;
 }
 
+#cardbox {
+    padding: 20px 20px 20px 20px;
+
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cardbox-container{
+    display: flex;
+    flex-wrap: wrap
+}
+
 
 /* button preconfiguration setting.
 .md-button {

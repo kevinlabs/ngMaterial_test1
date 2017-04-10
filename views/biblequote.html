@@ -1,1 +1,8 @@
-Bible quote page  {{testkevin}}
+<md-content class="md-padding" id="cardbox-container" >
+    <div ng-repeat="item in quoteArray">
+        <md-card class="animated zoomIn" id="cardbox">
+             {{item.text}} - {{item.bookname}} {{item.chapter}}:{{item.verse}}
+        </md-card>
+    </div>
+
+</md-content>

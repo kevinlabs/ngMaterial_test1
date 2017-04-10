@@ -14,12 +14,11 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="./css/test.css">
+    <link rel="stylesheet" href="./css/animate.css">
 
     <!--Should not load reset.css if your using material design css.-->
     <!--<link rel="stylesheet" href="./css/reset.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.css">
-
-
 </head>
 
 <body layout="row" ng-controller="mainCtrl">
@@ -35,13 +34,13 @@
         <!--Section1 -->
 
         <!--Section2-->
-        <md-button ui-sref="quote" class="md-raised sidebar-button" id="firstButton" md-ink-ripple="#03A9F4">
+        <md-button ui-sref="quote" class="md-raised sidebar-button animated rubberBand" id="firstButton" md-ink-ripple="#03A9F4">
             <div>
                 <ng-md-icon icon="face"></ng-md-icon>Find me Quotes
             </div>
         </md-button>
 
-        <md-button ui-sref="biblequote" class="md-raised sidebar-button" id="secondButton" md-ink-ripple="#03A9F4">
+        <md-button ui-sref="biblequote" class="md-raised sidebar-button animated rubberBand" id="secondButton" md-ink-ripple="#03A9F4">
             <div>
                 <ng-md-icon icon="book"></ng-md-icon>Find me Bible Quotes
             </div>
@@ -68,7 +67,7 @@
                     <ng-md-icon icon="menu"></ng-md-icon>
                 </md-button>
                 <h3>
-                    Dashboard
+                    Quote for the day
                 </h3>
                 <span flex></span>
                 <md-button aria-label="Search" ng-click="showSearch = !showSearch">
@@ -130,6 +129,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-animate.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-messages.js" charset="utf-8"></script>
     <!--======================-->
+
+    <!--Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
     <!--My Custom Script Set-->
     <script src="./js/app.js" charset="utf-8"></script>

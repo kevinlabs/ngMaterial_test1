@@ -1,9 +1,9 @@
 angular.module('StarterApp', ['ngMaterial', 'ngMdIcons', 'ui.router'])
-    .config(function ($stateProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('home', {
                 url: '/',
-                controller: 'mainCtrl',
+                controller: 'quoteCtrl',
                 // template: '<h1>testing home</h1>'
                 templateUrl: "./../views/quote.html"
             })
@@ -20,8 +20,17 @@ angular.module('StarterApp', ['ngMaterial', 'ngMdIcons', 'ui.router'])
                 templateUrl: "./../views/biblequote.html"
             });
 
-        // $urlRouterProvider
-        //     .otherwise('/');
+        $urlRouterProvider
+            .otherwise('/');
+    })
+
+    .config(function ($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist([
+            // Allow same origin resource loads.
+            'self',
+            // Allow loading from our assets domain.  Notice the difference between * and **.
+            'http://labs.bible.org/api/**'
+        ]);
     })
 
     .config(function ($mdThemingProvider) {

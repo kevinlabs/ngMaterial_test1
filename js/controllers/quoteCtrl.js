@@ -7,20 +7,29 @@ angular.module('StarterApp').controller('quoteCtrl', function ($scope, $statePar
         mainSrv.randomQuote().then(function (response) {
             $scope.quote = response.data;
             console.log('Showing the quotes: ', $scope.quote);
-            console.log($scope.quote.text, $scope.quote.author.name);
+            // console.log($scope.quote.text, $scope.quote.author.name);
             $scope.quoteArray.push({
-                quote: $scope.quote.text,
-                author: $scope.quote.author.name
+                quote: $scope.quote.quoteText,
+                author: $scope.quote.quoteAuthor
             });
 
             console.log('Showing array: ', $scope.quoteArray);
         });
     };
 
-    $scope.getQuote();
 
+    function closure(num) {
+        return function () {
+            $scope.getQuote();
+        }
+    }
 
-    console.log('Out side of function Showing array: ', $scope.quoteArray);
+    function timeOutCounter() {
+        for (var i = 0; i <= 10; i++) {
+            setTimeout(closure(i), i * 2000);
+        }
+    }
 
+    timeOutCounter();
 
 });
