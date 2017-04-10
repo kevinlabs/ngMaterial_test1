@@ -1,4 +1,4 @@
-app.controller('ListBottomSheetCtrl', function ($scope, $mdBottomSheet) {
+angular.module('StarterApp').controller('ListBottomSheetCtrl', function ($scope, $mdBottomSheet) {
     $scope.items = [{
             name: 'Share',
             icon: 'share'
